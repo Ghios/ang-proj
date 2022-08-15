@@ -12,9 +12,16 @@ import { MatTableModule } from '@angular/material/table';
   styleUrls: ['./special-events.component.scss']
 })
 export class SpecialEventsComponent implements OnInit {
+
   events: Ievents[] = []
-  specialEvents: any = []
-  constructor(private _eventService: EventService, private _router: Router, private stock: StockService) {
+  specialEvents: Ievents[] = []
+
+  constructor(
+    private _eventService: EventService,
+    private _router: Router,
+    private stock: StockService
+  ) {
+    // get data for table
     this.stock.getData()
     .subscribe(res => {
       this.data = res
@@ -22,9 +29,9 @@ export class SpecialEventsComponent implements OnInit {
     })
   }
 
+  
   data: todo[] = []
   columnsToDisplay = ['id','userId','title', 'completed']
-  //dataSource = this.events;
 
   ngOnInit(): void {
     this._eventService.getSpecialEvents()
@@ -38,18 +45,5 @@ export class SpecialEventsComponent implements OnInit {
         }
       }
     })
-
-/*
-    this._eventService.getSpecialEvents()
-    .subscribe(data => {
-      this.events = data
-      console.log(this.events)
-    })
-*/
-
   }
-
-
-
-
 }

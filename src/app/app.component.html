@@ -7,13 +7,13 @@
           <a routerLink="/special" class="nav-link">Tables</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="!_authService.loggedIn()" routerLink="/login" class="nav-link">Login</a>
+          <a *ngIf="!authService.isloggedIn()" routerLink="/login" class="nav-link">Login</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="!_authService.loggedIn()" routerLink="/register" class="nav-link">Register</a>
+          <a *ngIf="!authService.isloggedIn()" routerLink="/register" class="nav-link">Register</a>
         </li>
         <li class="nav-item">
-          <a *ngIf="_authService.loggedIn()" (click)="_authService.logOutUser()"
+          <a *ngIf="authService.isloggedIn()" (click)="authService.logOutUser()"
           class="nav-link" style="cursor: pointer;"> LogOut </a>
         </li>
       </ul>

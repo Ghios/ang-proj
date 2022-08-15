@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  get email(){
+
+  get email() {
     return this.form.get('email')
   }
 
@@ -36,7 +37,6 @@ export class LoginComponent implements OnInit {
   }
 
   submit (): void {
-    //console.log(this.form.getRawValue())
     this._auth.loginUser(this.form.getRawValue())
       .subscribe({
         next: res => {

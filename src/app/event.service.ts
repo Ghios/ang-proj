@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 export interface Ievents {
   id: string,
   name: string,
@@ -20,7 +19,7 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
-  getEvents() {
+  getEvents(): Observable<Ievents[]> {
     return this.http.get<Ievents[]>(this._eventsUrl)
   }
 

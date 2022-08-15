@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  //getters
 
   get email(){
     return this.form.get('email')
@@ -38,8 +39,8 @@ export class RegisterComponent implements OnInit {
     return this.form.get('password')
   }
 
+  // Submtitting request for registration
   submit (): void {
-    //console.log(this.form.getRawValue())
     this._auth.registerUser(this.form.getRawValue())
     .subscribe({
       next: res => {
